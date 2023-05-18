@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabee - Shop Na!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <style>
+        #top .card-body{
+            height: 150px;
+        }
+        #top .card-img-top{
+            height: 286px;
+            width: 286px;
+        }
+        nav, .medyoNav, nav .btn, .card-header .btn, .col-lg-8 .btn, .col-lg-8 .btn:hover {
+            background-color: #fac41a;
+        }
+        #navSearch {
+            width: 1000px;
+        }
+        ul p {
+            margin-bottom: 0px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .navbar {
+            margin-top: 24px;
+        }
+        .navRight {
+            display: flex;
+            justify-content: end;
+        }
+        .col-lg-8 .btn {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+        }
+        .col-lg-8 .card-body {
+            height: 206px;
+        }
+        .col-lg-8 .card-img-top {
+            height: 267px;
+            width: 267px;
+        }
+        footer {
+            justify-content: space-between;
+        }
+        #Bg {
+            height: 300px;
+            padding-top: 180px;
+            background-image: url(pictures/bg.jpg);
+            background-position: center 40%;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .anchor {
+            display: block;
+            position: relative;
+            top: -130px;
+            visibility: hidden;
+        }
+        .anchorTop {
+            display: block;
+            position: relative;
+            top: -280px;
+            visibility: hidden;
+        }
+        @media (max-width: 1439px) {
+            #navSearch {
+                width: 620px;
+            }
+            .col-lg-8 .card-img-top {
+                height: 187px;
+                width: 187px;
+            }
+        }
+        @media (max-width: 1023px) {
+            #navSearch {
+                width: 390px;
+            }
+            #signUp {
+                display: none;
+            }
+            #Bg {
+                padding-top: 100px;
+            }
+            .col-md-6:not(:first-child):not(:nth-child(2)) {
+                margin-top: 10px;
+            }
+            .col-lg-8 .card-body {
+                height: 255px;
+            }
+            .col-lg-8 .card-img-top {
+                height: 214px;
+                width: 214px;
+            }
+        }
+        @media (max-width: 767px) {
+            #navSearch {
+                width: 150px;
+            }
+            #logoimg {
+                height: 50px;
+            }
+            #Bg {
+                padding-top: 70px;
+            }
+            .navbar {
+                margin-top: 52px;
+            }
+            .navLeft {
+                text-align: center;
+            }
+            .navRight {
+                justify-content: center;
+            }
+            .col-lg-3:not(:first-child), .col-lg-8 .col-sm-4:not(:first-child) {
+                margin-top: 10px;
+            }
+            #backToTop {
+                display: none;
+            }.col-lg-8 .card-img-top {
+                height: 384px;
+                width: 384px;
+            }
+        }
+    </style>
+    <script>
+        var yourCart = [];
+        var shabeeStore = [
+            {prod_name: 'Apple iPad - Silver', prod_price: 28890.00},
+            {prod_name: 'Apple iPhone 11', prod_price: 37990.00},
+            {prod_name: 'Apple Watch Series 8', prod_price: 25990.00},
+            {prod_name: 'Wireless Power Bank', prod_price: 1438.00},
+            {prod_name: 'Orashare Powerbank', prod_price: 729.00},
+            {prod_name: 'Washing Machine', prod_price: 4999.00},
+            {prod_name: 'Light Liquid Luminizer', prod_price: 2346.00},
+            {prod_name: 'Liquid Touch Foundation', prod_price: 2904.00},
+            {prod_name: 'Universal Mascara', prod_price: 1483.00},
+            {prod_name: 'Airbrush Setting Spray', prod_price: 3127.00},
+            {prod_name: 'Cleansing Balm', prod_price: 5361.00},
+            {prod_name: 'DIOR Lip Tint', prod_price: 3295.00},
+            {prod_name: 'Pride and Prejudice', prod_price: 754.00},
+            {prod_name: '365 Days Daily Planner', prod_price: 37990.00},
+            {prod_name: 'TOMBOW BRUSH MARKER', prod_price: 144.00},
+            {prod_name: 'Loose Leaf Metal Clip Binder', prod_price: 158.00},
+            {prod_name: 'Artherapy Paint by Numbers Kit', prod_price: 299.00},
+            {prod_name: 'Expanding Document Envelope', prod_price: 149.75},
+            {prod_name: 'CG CHESS BOARD', prod_price: 999.00},
+            {prod_name: 'Badminton Net Set', prod_price: 5584.00},
+            {prod_name: '1k PC. Jigsaw Puzzle', prod_price: 1283.00},
+            {prod_name: 'Metallic 3-Ring Pool', prod_price: 1500.00},
+            {prod_name: 'Odile & Cole Plush', prod_price: 569.00},
+            {prod_name: 'Hawk Eye Blaster', prod_price: 899.75}
+        ];
+        function addToCart(event) {
+            var shabeeItem = Number(event.target.id.slice(8))-1;
+            yourCart.push(shabeeStore[shabeeItem]);
+            showCart();
+        }
+        function showCart() {
+            if (yourCart == 0) {
+                var total = 0;
+                document.getElementById("listCart").innerHTML = '<li class="list-group-item d-flex justify-content-center"><em>No items.</em></li>';
+                document.getElementById("orderTotal").innerHTML = total.toFixed(2);
+                document.getElementById("itemsInCart").value = JSON.stringify(yourCart);
+            } else {
+                var total = 0;
+                document.getElementById("listCart").innerHTML = '';
+                for (var i=0; i<yourCart.length; i++) {
+                    total += yourCart[i].prod_price;
+                    document.getElementById("listCart").innerHTML += '<li class="list-group-item mb-1"><div class="d-flex justify-content-between"><div class="d-flex align-items-center"><btn class="btn btn-danger btn-sm me-2" onclick="removeItem(' + i + ')">X</btn>' + yourCart[i].prod_name + '</div><span></span><div class="d-flex align-items-center"><p class="m-0">Php ' + yourCart[i].prod_price.toFixed(2) + '</p></div></li>';
+                }
+                document.getElementById("orderTotal").innerHTML = total.toFixed(2);
+                document.getElementById("txtCustOrder").value = JSON.stringify(yourCart);
+            }
+        }
+        function removeItem(i) {
+            yourCart.splice(i,1);
+            showCart();
+        }
+    </script>
+</head>
+<body onload="showCart();">
+    <div class="medyoNav fixed-top">
+        <div class="container">
+            <div class="row text-light">
+                <div class="col-sm-6">
+                    <div class="navLeft">
+                        <p class="mb-1">Seller Center | Start Selling | Follow Us</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 navRight">
+                    <div class="d-flex">
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-bell-fill me-1"></i>
+                            <p>Notifications</p>
+                        </div>
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-question-circle-fill me-1"></i>
+                            <p>Help</p>
+                        </div>
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-globe2 me-1"></i>
+                            <p>English</p>
+                        </div>
+                    </div>
+                    <div id="signUp" class="ms-4">
+                        <p>Sign Up | Login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                <img id="logoimg" height="70" alt="Brand" src="pictures/logo.png">
+                </a>
+            </div>
+            <div class="d-flex gap-1">
+                <div id="navSearch" class="input-group rounded">
+                    <input type="search" class="form-control form-input" placeholder="Sign up and get 100% off on your first order">
+                    <button class="btn bg-light"><i class="bi-search"></i></button>
+                </div>
+                <a id="cartButton" href="#cart" class="btn" style="padding-left: 30px; padding-right: 30px;"><i class="bi bi-cart text-light" style="font-size: 30px;"></i></a>
+            </div>
+        </div>
+    </nav>
+    <article id="Bg" class="align-text-bottom px-2 mt-4">   
+        <a class="anchorTop" id="top"></a>
+        <div id="mainBody" class="container">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <a>
+                        <h3>Categories</h3>
+                    </a>
+                    <div class="row justify-content-center my-3 m-2">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/categpic1.jpg" alt="category picture">
+                                <div class="card-body">
+                                    <a href="#categ1">
+                                        <h5 class="card-text">Gadgets & Electronics</h5>
+                                    </a>
+                                    <p class="card-text">Try not to get SHOCKED by these low prices!</p>
+                                    <div class="d-flex justify-content-end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/categpic2.jpg" alt="category picture">
+                                <div class="card-body">
+                                    <a href="#categ2">
+                                        <h5 class="card-text">Makeups & Accessories</h5>
+                                    </a>
+                                    <p class="card-text">Let us make up your mind and buy these already!</p>
+                                    <div class="d-flex justify-content-end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/categpic3.jpg" alt="category picture">
+                                <div class="card-body">
+                                    <a href="#categ3">
+                                        <h5 class="card-text">Hobbies & Stationeries</h5>
+                                    </a>
+                                    <p class="card-text">Don't just stay there! Go and explore your hobbies!</p>
+                                    <div class="d-flex justify-content-end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/categpic4.jpg" alt="category picture">
+                                <div class="card-body">
+                                    <a href="#categ4">
+                                        <h5 class="card-text">Toys & Collectibles</h5>
+                                    </a>
+                                    <p class="card-text">These toys won't toy with your heart! (real)</p>
+                                    <div class="d-flex justify-content-end">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-3">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div>
+                        <div class="row">
+                            <a class="anchor" id="categ1"></a>
+                            <h3>Gadgets & Electronics</h3>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item1.png" alt="proditem 1">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Apple iPad - Silver</h5>
+                                        <p class="card-text">(9th Gen, Late 2021) 256 GB</p>
+                                        <p class="card-text">Php 28,890</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem1" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item2.png" alt="proditem 2">
+                                    <div class="card-body">
+                                        <h5 class="card-text"> Apple iPhone 11</h5>
+                                        <p class="card-text"> Late 2020 128 GB</p>
+                                        <p class="card-text">Php 37,990</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem2" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item3.png" alt="proditem 3">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Apple Watch Series 8</h5>
+                                        <p class="card-text"> It watches over you. How nice.</p>
+                                        <p class="card-text">Php 25,990</p>                                      
+                                            <div class="d-flex justify-content-end">
+                                            <button id="proditem3" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item4.png" alt="proditem 4">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Wireless Power Bank</h5>
+                                        <p class="card-text">Utilizing the latest witchcraft!</p>
+                                        <p class="card-text">Php 1,438</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem4" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item5.png" alt="proditem 5">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Orashare Powerbank</h5>
+                                        <p class="card-text">3x outlets! 3x better!</p>
+                                        <p class="card-text">Php 729</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem5" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item6.png" alt="proditem 6">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Washing Machine</h5>
+                                        <p class="card-text"> Top Load Fully Automatic</p>
+                                        <p class="card-text">Php 4,999</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem6" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <a class="anchor" id="categ2"></a>
+                            <h3>Makeups & Accessories</h3>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item7.png" alt="proditem 7">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Light Liquid Luminizer</h5>
+                                        <p class="card-text">15 ml</p>
+                                        <p class="card-text">Php 2,346</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem7" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item8.png" alt="proditem 8">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Liquid Touch Foundation</h5>
+                                        <p class="card-text">28 ml</p>
+                                        <p class="card-text">Php 2904</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem8" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item9.png" alt="proditem 9">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Universal Mascara</h5>
+                                        <p class="card-text">13.5 ml</p>
+                                        <p class="card-text">Php 1,483</p>                                      
+                                            <div class="d-flex justify-content-end">
+                                            <button id="proditem9" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item10.png" alt="proditem 10">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Airbrush Setting Spray</h5>
+                                        <p class="card-text">100 ml</p>
+                                        <p class="card-text">Php 3,127</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem10" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item11.png" alt="proditem 11">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Cleansing Balm</h5>
+                                        <p class="card-text">Do not eat!</p>
+                                        <p class="card-text">5,361</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem11" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item12.png" alt="proditem 12">
+                                    <div class="card-body">
+                                        <h5 class="card-text">DIOR Lip Tint</h5>
+                                        <p class="card-text"> 5 ml</p>
+                                        <p class="card-text">Php 3,295</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem12" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <a class="anchor" id="categ3"></a>
+                            <h3>Hobbies & Stationeries</h3>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item13.png" alt="proditem 13">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Pride and Prejudice</h5>
+                                        <p class="card-text">Barnes & Noble Collectible Editions</p>
+                                        <p class="card-text">Php 754</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem13" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item14.png" alt="proditem 14">
+                                    <div class="card-body">
+                                        <h5 class="card-text">365 Days Daily Planner</h5>
+                                        <p class="card-text">400 pages notebook</p>
+                                        <p class="card-text">Php 37,990</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem14" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item15.png" alt="proditem 15">
+                                    <div class="card-body">
+                                        <h5 class="card-text">TOMBOW BRUSH MARKER</h5>
+                                        <p class="card-text">ABT158 DARK OLIVE</p>
+                                        <p class="card-text">Php 144</p>                                      
+                                            <div class="d-flex justify-content-end">
+                                            <button id="proditem15" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item16.png" alt="proditem 4">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Loose Leaf Metal Clip Binder</h5>
+                                        <p class="card-text">A5/B5/A4 (20/26/30 Holes)</p>
+                                        <p class="card-text">Php 158</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem16" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item17.png" alt="proditem 5">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Artherapy Paint by Numbers Kit </h5>
+                                        <p class="card-text">40cmX30cm</p>
+                                        <p class="card-text">Php 299</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem17" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item18.png" alt="proditem 6">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Expanding Document Envelope</h5>
+                                        <p class="card-text">Handle Hokkaido Collection 13</p>
+                                        <p class="card-text">Php 149.75</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem18" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <a class="anchor" id="categ4"></a>
+                            <h3>Toys & Collectibles</h3>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item19.png" alt="proditem 13">
+                                    <div class="card-body">
+                                        <h5 class="card-text">CG CHESS BOARD</h5>
+                                        <p class="card-text">CG COLLECTION GF022</p>
+                                        <p class="card-text">Php 999</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem19" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item20.png" alt="proditem 18">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Badminton Net Set</h5>
+                                        <p class="card-text">Net, 4 Rackets, 3 Birdies</p>
+                                        <p class="card-text">Php 5,584</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem20" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item21.png" alt="proditem 3">
+                                    <div class="card-body">
+                                        <h5 class="card-text">1k PC. Jigsaw Puzzle</h5>
+                                        <p class="card-text">26.7" x 26.7"</p>
+                                        <p class="card-text">Php 1,283</p>                                      
+                                            <div class="d-flex justify-content-end">
+                                            <button id="proditem21" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item22.png" alt="proditem 4">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Metallic 3-Ring Pool </h5>
+                                        <p class="card-text">6ft 7in x 21in</p>
+                                        <p class="card-text">Php 1,500</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem22" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item23.png" alt="proditem 5">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Odile & Cole Plush</h5>
+                                        <p class="card-text">5 inch. The cutest thing ever!</p>
+                                        <p class="card-text">Php 569</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem23" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card">
+                                    <img class="card-img-top" src="pictures/item24.png" alt="proditem 6">
+                                    <div class="card-body">
+                                        <h5 class="card-text">Hawk Eye Blaster</h5>
+                                        <p class="card-text">Totally shoots homing bullets!</p>
+                                        <p class="card-text">Php 899.75</p>
+                                        <div class="d-flex justify-content-end">
+                                            <button id="proditem24" class="btn text-light" onclick="addToCart(event)">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <a class="anchor" id="cart"></a>
+                    <h3 class="invisible">filler</h3>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4>Your Cart</h4>
+                            <ul id="listCart" class="p-0"></ul>
+                            <div class="d-flex justify-content-between">
+                                <strong>Total:</strong>
+                                <div class="d-flex">
+                                    <p>Php <span id="orderTotal">0.00</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-header">
+                            <h4>Delivery Details</h4>
+                            <form action="http://sirjm.infinityfreeapp.com/checkout.php" method="get">
+                                <div class="mb-3">
+                                    <label for="custName" class="form-label">Customer Name</label>
+                                    <input type="text" class="form-control" id="custName" name="cust_name" placeholder="e.g. Juan Dela Cruz" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="emailAdd" class="form-label">Email Address</label>
+                                    <input type="text" class="form-control" id="emailAdd" name="cust_email" placeholder="e.g. jdcruz@gmail.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="deliAdd" class="form-label">Delivery Address</label>
+                                    <input type="text" class="form-control" id="deliAdd" name="cust_addr" placeholder="e.g. Dimasilang St." required>
+                                </div>
+                                <input type="hidden" name="cust_order" id="txtCustOrder">
+                                <div class="d-flex justify-content-end mb-1">
+                                    <input type="submit" value="Checkout" class="btn text-light">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <hr>
+            <footer class="d-flex">
+                <a href="about.html">About Us</a>
+                <a id="backToTop" href="#top">Back To Top</a>
+                <p>(c) Pangilinan, Tanay, Bugarin</p>
+            </footer>
+        </div>
+    </article>
+</body>
+</html>

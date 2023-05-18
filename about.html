@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shabee - Shop Na!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <style>
+        #top .card-body{
+            height: 150px;
+        }
+        #top .card-img-top{
+            height: 412px;
+            width: 412px;
+        }
+        nav, .medyoNav, nav .btn, .card-header .btn, .col-lg-8 .btn, .col-lg-8 .btn:hover {
+            background-color: #fac41a;
+        }
+        #navSearch {
+            width: 1000px;
+        }
+        ul p {
+            margin-bottom: 0px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            padding-top: 76px;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .navbar {
+            margin-top: 24px;
+        }
+        .navRight {
+            display: flex;
+            justify-content: end;
+        }
+        .col-sm-4 {
+            margin: 0px;
+        }
+        .col-lg-8 .btn {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+        }
+        .col-lg-8 .card-body {
+            height: 206px;
+        }
+        .col-lg-8 .card-img-top {
+            height: 267px;
+            width: 267px;
+        }
+        footer {
+            justify-content: space-between;
+        }
+        #Bg {
+            height: 1080px;
+            padding-top: 900px;
+            background-image: url(pictures/bg2.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .anchor {
+            display: block;
+            position: relative;
+            top: -130px;
+            visibility: hidden;
+        }
+        .anchorTop {
+            display: block;
+            position: relative;
+            top: -280px;
+            visibility: hidden;
+        }
+        @media (max-width: 1439px) {
+            #navSearch {
+                width: 620px;
+            }
+            #top .card-img-top{
+                height: 292px;
+                width: 292px;
+            }
+        }
+        @media (max-width: 1023px) {
+            #navSearch {
+                width: 390px;
+            }
+            #signUp {
+                display: none;
+            }
+            #Bg {
+                background-image: url(pictures/bg.jpg);
+                padding-top: 100px;
+            }
+            .col-sm-4:not(:first-child) {
+                margin-top: 10px;
+            }
+            .col-lg-8 .card-body {
+                height: 255px;
+            }
+            .col-lg-8 .card-img-top {
+                height: 214px;
+                width: 214px;
+            }
+            #top .card-img-top{
+            height: 211px;
+            width: 211px;
+        }
+        }
+        @media (max-width: 767px) {
+            #navSearch {
+                width: 150px;
+            }
+            #logoimg {
+                height: 50px;
+            }
+            #Bg {
+                background-image: url(pictures/bg.jpg);
+                padding-top: 70px;
+            }
+            .navbar {
+                margin-top: 52px;
+            }
+            .navLeft {
+                text-align: center;
+            }
+            .navRight {
+                justify-content: center;
+            }
+            .col-sm-4:not(:first-child) {
+                margin-top: 10px;
+            }
+            .col-lg-8 .card {
+                height: 384px;
+                width: 384px;
+            }
+            #top .card-img-top{
+            height: 376px;
+            width: 376px;
+            }
+            .navLeft {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="medyoNav fixed-top">
+        <div class="container">
+            <div class="row text-light">
+                <div class="col-sm-6">
+                    <div class="navLeft">
+                        <p class="mb-1">Seller Center | Start Selling | Follow Us</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 navRight">
+                    <div class="d-flex">
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-bell-fill me-1"></i>
+                            <p>Notifications</p>
+                        </div>
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-question-circle-fill me-1"></i>
+                            <p>Help</p>
+                        </div>
+                        <div class="d-flex ms-2">
+                            <i class="bi bi-globe2 me-1"></i>
+                            <p>English</p>
+                        </div>
+                    </div>
+                    <div id="signUp" class="ms-4">
+                        <p>Sign Up | Login</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                <img id="logoimg" height="70" alt="Brand" src="pictures/logo.png">
+                </a>
+            </div>
+            <div class="d-flex gap-1">
+                <div id="navSearch" class="input-group rounded">
+                    <input type="search" class="form-control form-input" placeholder="Sign up and get 100% off on your first order">
+                    <button class="btn bg-light"><i class="bi-search"></i></button>
+                </div>
+                <a id="cartButton" href="#cart" class="btn" style="padding-left: 30px; padding-right: 30px;"><i class="bi bi-cart text-light" style="font-size: 30px;"></i></a>
+            </div>
+        </div>
+    </nav>  
+    <article id="Bg" class="align-text-bottom px-2 mt-4">
+        <div id="top" class="container p-0">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <a>
+                        <h3>About Us</h3>
+                    </a>
+                    <div class="row justify-content-center my-3">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/Pangilinan.jpg" alt="creators">
+                                <div class="card-body">
+                                    <h5 class="card-text text-wrap">Xandrei Pangilinan</h5>
+                                    <p class="card-text text-wrap">Worker bee.</p>
+                                    <p class="card-text text-wrap">- A lot of coding. Like a lot</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/Tanay.jpg" alt="creators">
+                                <div class="card-body">
+                                    <h5 class="card-text text-wrap">Amir Tanay</h5>
+                                    <p class="card-text text-wrap">Not a wasp!</p>
+                                    <p class="card-text text-wrap">- Coding the design.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <img class="card-img-top" src="pictures/Bugarin.jpg" alt="creators">
+                                <div class="card-body">
+                                    <h5 class="card-text text-wrap">Gwyn Bugarin</h5>
+                                    <p class="card-text text-wrap">Queen of the hive.</p>
+                                    <p class="card-text text-wrap">- Designing</p>
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container pt-3 bg-light rounded mt-2 border">
+            <h3>References:</h3>
+            <ul>
+                <li>
+                    <a  href="https://shopee.ph/Apple-iPad-Wi-Fi-(9th-Gen-Late-2021)-i.448087759.10961699748?sp_atk=775c0b3c-d215-4db2-9a6f-6302ca77772b&xptdk=775c0b3c-d215-4db2-9a6f-6302ca77772b">Apple iPad - Silver</a>
+                </li>
+                <li>
+                    <a  href=" https://shopee.ph/Apple-iPhone-11-Late-2020-i.448087759.9658777892?sp_atk=dbcce998-7f84-46bc-ae64-eb9fa8f4b5b1&xptdk=dbcce998-7f84-46bc-ae64-eb9fa8f4b5b1">Apple iPhone 11</a>
+                </li>
+                <li>
+                    <a  href="https://www.apple.com/ph/shop/buy-watch">Apple Watch Series 8</a>
+                </li>
+                <li>
+                    <a  href="https://shopee.ph/BAVIN-PC062-10000mAh-22.5W-Fast-Charging-Magnetic-Wireless-Charging-Power-Bank-for-iPh-12-13-14-i.5095176.15112991752?sp_atk=54a75f35-2f95-4792-a357-26e227c9c406&xptdk=54a75f35-2f95-4792-a357-26e227c9c406">Wireless Power Bank</a>
+                </li>
+                <li>
+                    <a  href="https://shopee.ph/Orashare-O20Pro-20000mAh-Powerbank-PD20W-Fast-Charge-High-Capacity-Triple-Output-Powerbank-Original-i.264015657.10256955048?sp_atk=07878826-a931-43b8-8552-99983350bf6b&xptdk=07878826-a931-43b8-8552-99983350bf6b">Orashare Powerbank</a>
+                </li>
+                <li>
+                    <a  href="https://shopee.ph/Hamle-Washing-Machine-Top-Load-Fully-Automatic-Washing-Machine-With-Spin-Dry-Drain-Basket-8KG-i.589728687.20471259133?sp_atk=2f3740f2-5cfb-41a3-a9a2-8534b5af8b34&xptdk=2f3740f2-5cfb-41a3-a9a2-8534b5af8b34">Washing Machine</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/rare-beauty-positive-light-liquid-luminizer/v/mesmerize">Light Liquid Luminizer</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/rare-beauty-liquid-touch-weightless-foundation/v/110n">Liquid Touch Foundation</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/rare-beauty-perfect-strokes-universal-volumizing-mascara/v/13-dot-5ml">Universal Mascara</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/charlotte-tilbury-airbrush-flawless-setting-spray/v/100ml">Airbrush Setting Spray</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/farmacy-green-clean-makeup-meltaway-cleansing-balm/v/200ml">Cleansing Balm</a>
+                </li>
+                <li>
+                    <a  href="https://www.sephora.sg/products/dior-addict-no-transfer-lip-tint/v/421-natural-tea">DIOR Lip Tint</a>
+                </li>
+                <li>
+                    <a  href="https://www.barnesandnoble.com/w/barnes-noble-leatherbound-classics-pride-and-prejudice-jane-austen/1106658784?ean=9781435159631">Pride and Prejudice</a>
+                </li>
+                <li>
+                    <a  href="https://shopee.ph/365-Days-Daily-Planner-thick-400-pages-notebook-2023-Time-management-Cherish-Memory-showtime-i.2482355.10380392198?sp_atk=8e0dd310-c7ef-4a13-83bb-42b0769d8bd9&xptdk=8e0dd310-c7ef-4a13-83bb-42b0769d8bd9">365 Days Daily Planner</a>
+                </li>
+                <li>
+                    <a  href="https://www.nationalbookstore.com/stationery/7303-tombow-brush-marker-abt158-dark-olive-.html?search_query=tombow+fudenosuke&results=74">TOMBOW BRUSH MARKER</a>
+                </li>
+                <li>
+                    <a  href="https://shopee.ph/PAPER-INCLUDED-Loose-Leaf-Metal-Clip-Binder-A5-B5-A4-(20-26-30-Holes)-i.5166767.2597652849?sp_atk=012262cc-a429-440d-95d5-dbb7e5a535bb&xptdk=012262cc-a429-440d-95d5-dbb7e5a535bb">Loose Leaf Metal Clip Binder</a>
+                </li>
+                <li>
+                    <a  href="https://smstationery.com.ph/collections/painting/products/scribbler-artherapy-paint-by-numbers-kit">Artherapy Paint by Numbers Kit</a>
+                </li>
+                <li>
+                    <a  href="https://smstationery.com.ph/collections/expanding-organizers/products/king-expanding-document-envelope-with-handle-hokkaido-collection-13-pockets">Expanding Document Envelope</a>
+                </li>
+                <li>
+                    <a  href="https://www.nationalbookstore.com/toys-games/6793-craftsman-games-collection-gf022-.html">CG CHESS BOARD</a>
+                </li>
+                <li>
+                    <a  href="https://www.amazon.com/Olybeaka-Badminton-Backyard-Aluminum-Boundary/dp/B0BRGB6TXF/ref=sr_1_3_sspa?crid=1EJNI9F6TASJ9&keywords=badminton%2Bsets%2Bfor%2Bbackyards&qid=1684079388&sprefix=badminton%2B%2Caps%2C450&sr=8-3-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzMlA1VVY0TE1GM0JUJmVuY3J5cHRlZElkPUEwOTM3MjY2NFY5WEJRU1A3SkpRJmVuY3J5cHRlZEFkSWQ9QTAzODY0NTc3SkdaMlFFWktQSlUmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl&th=1">Badminton Net Set</a>
+                </li>
+                <li>
+                    <a  href="https://www.amazon.com/Puzzles-Adults-Jigsaw-Pieces-Horoscope/dp/B089S1ZQLG/ref=sr_1_4_sspa?crid=C3OL7A42RG1D&keywords=puzzle&qid=1684079451&sprefix=puzz%2Caps%2C289&sr=8-4-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExNDdPQlkwWTZBWUUwJmVuY3J5cHRlZElkPUEwODQ5NzExM0kySFdOMEtTQVFFNSZlbmNyeXB0ZWRBZElkPUEwNjkyMDA4QkJNTkM1VkJRWVZNJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ&th=1">1k PC. Jigsaw Puzzle</a>
+                </li>
+                <li>
+                    <a  href="https://www.toykingdom.com.ph/collections/bestway-up-to-50-off-promo/products/bestway-6ft-7in-x-21in-big-metallic-3-ring-pool">Metallic 3-Ring Pool</a>
+                </li>
+                <li>
+                    <a  href="https://www.toykingdom.com.ph/collections/plush-toys/products/squishmallows-odile-cole-5-inch-little-plush">Odile & Cole Plush</a>
+                </li>
+                <li>
+                    <a  href="https://www.toykingdom.com.ph/collections/combat-weapons-accessories/products/xshot-excel-hawk-eye-blaster">Hawk Eye Blaster</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <hr>
+            <footer class="d-flex justify-content-between">
+                <a  href="index.html">Shop</a>
+                <a  href="#top">Back To Top</a>
+                <p>(c) Pangilinan, Tanay, Bugarin</p>
+            </footer>
+        </div>
+    </article>
+</body>
+</html>
